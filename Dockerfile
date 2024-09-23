@@ -13,8 +13,8 @@ RUN pip install -r requirements.txt && \
     apk add --no-cache bash openssl && \
     chmod +x start.sh
 
-# Expose the port your app will run on
-EXPOSE 5000
+# Expose the HTTPS port (443)
+EXPOSE 443
 
-# Run the start.sh script to start Gunicorn
+# Run the start.sh script to start Gunicorn with HTTPS
 CMD [ "bash", "start.sh" ]
