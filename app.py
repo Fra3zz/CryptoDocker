@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 
 # Directory where uploaded files will be stored (adjust this as needed)
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = './'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # Path to store the uploaded certificate and key
@@ -77,11 +77,11 @@ def upload_files():
 
 
 # Load private key for signing, decrypting, and timestamping
-with open("uploads/private_key.pem", "rb") as key_file:
+with open("private_key.pem", "rb") as key_file:
     private_key = serialization.load_pem_private_key(key_file.read(), password=None, backend=default_backend())
 
 # Load public key for encrypting and verifying signatures
-with open("uploads/public_key.pem", "rb") as pub_file:
+with open("public_key.pem", "rb") as pub_file:
     public_key = serialization.load_pem_public_key(pub_file.read(), backend=default_backend())
 
 
@@ -216,4 +216,4 @@ def verify_signature():
 
 
 if __name__ == '__main__':
-    app.run(port=5000)
+    app.run(port=5000, host="0.0.0.0", debug=False)
