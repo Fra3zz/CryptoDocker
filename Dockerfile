@@ -8,7 +8,7 @@ COPY requirements.txt requirements.txt
 COPY app.py app.py
 COPY start.sh start.sh
 
-# Install dependencies and OpenSSL, and make sure bash and openssl are installed
+# Install dependencies including Gunicorn, OpenSSL, and bash
 RUN pip install -r requirements.txt && \
     apk add --no-cache bash openssl && \
     chmod +x start.sh
@@ -16,5 +16,5 @@ RUN pip install -r requirements.txt && \
 # Expose the port your app will run on
 EXPOSE 5000
 
-# Run the start.sh script
+# Run the start.sh script to start Gunicorn
 CMD [ "bash", "start.sh" ]
