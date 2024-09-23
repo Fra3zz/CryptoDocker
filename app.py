@@ -6,9 +6,16 @@ from cryptography.x509 import load_pem_x509_certificate
 import base64
 import datetime
 import os
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+
+cors_settings = os.environ.get("CORS", "false").lower() in ["true", "1"]
+
+if(cors_settings):
+    CORS(app)
+    print("CORS enabled")
 
 # Directory where uploaded files will be stored (adjust this as needed)
 UPLOAD_FOLDER = './'
