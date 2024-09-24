@@ -1,5 +1,7 @@
 
-# API Documentation for the Timestamp and Encryption Application
+# API Documentation for the Timestamp and Encryption Application 
+
+Please add pull requests in github. Always welcome to expand on this project.
 
 This document provides details on all API endpoints for the Timestamp and Encryption Application and explains what each endpoint does.
 
